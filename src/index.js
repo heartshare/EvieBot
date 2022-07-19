@@ -1,8 +1,10 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
+import db from './db/connection.js'; // importing mongo db
+db.Connect();
+
 import TelegramBot from 'node-telegram-bot-api';
-// import pomodoro from './functions.js';
 
 const Token = process.env.TOKEN; // retrieve bot token from bot father
 
