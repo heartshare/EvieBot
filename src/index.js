@@ -1,5 +1,8 @@
-require('dotenv').config();
-const TelegramBot = require('node-telegram-bot-api');
+import dotenv from 'dotenv';
+dotenv.config();
+
+import TelegramBot from 'node-telegram-bot-api';
+// import pomodoro from './functions.js';
 
 const Token = process.env.TOKEN; // retrieve bot token from bot father
 
