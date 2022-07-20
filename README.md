@@ -1,5 +1,5 @@
 # EvieBot
-A simple Telegram reminder bot built using JavaScipt, Node and Mongoose.
+A Telegram reminder bot written with JavaScript, Node, and Mongoose that will help remind you on your tasks.
 
 # At a Glance
 Demo             |  Demo
