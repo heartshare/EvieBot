@@ -49,7 +49,7 @@ Evie.onText(/\/remind (.+)/, (msg, match) => {
         timer: endsAt
     }).then(() => { // when data saves to db return bot response
         Evie.sendMessage(chatId, `Reminder "${Reminder}" set. I will remind you in ${Timer}.`);
-    });
+    }).catch((e) => console.error(e));
 
     const remindNotif = async () => {
         const data = {
@@ -71,4 +71,12 @@ Evie.onText(/\/remind (.+)/, (msg, match) => {
         setTimeout(remindNotif, 1000 * 10);
     }
     remindNotif(); // execute function
+});
+
+Evie.onText(/\/clear/, (msg) => {
+    const chatId = msg.chat.id;
+
+    remindSchema.deleteMany().then(() => { // searches for data and deletes all
+        Evie.sendMessage(chatId, `Cleared reminders.`);
+    }).catch((e) => console.error(e));
 });
