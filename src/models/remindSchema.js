@@ -1,11 +1,9 @@
-import { Schema, model } from 'mongoose';
+import mongoose from 'mongoose';
 
-const remindSchema = new Schema({
-    userId: { type: String },
-    reminder: { type: String },
-    dateSet: { type: Date },
-    timer: { type: Date },
-    remindId: { type: String }
+const remindSchema = new mongoose.Schema({
+    userId: String,
+    reminder: String,
+    timer: Date,
 });
 
-export default model('Reminders', remindSchema);
+export default mongoose.model('Reminders', remindSchema);
