@@ -50,4 +50,25 @@ Evie.onText(/\/remind (.+)/, (msg, match) => {
     }).then(() => { // when data saves to db return bot response
         Evie.sendMessage(chatId, `Reminder "${Reminder}" set. I will remind you in ${Timer}.`);
     });
+
+    const remindNotif = async () => {
+        const data = {
+            timer: {
+                $lt: new Date()
+            }
+        };
+
+        const results = await remindSchema.find(data);
+        for (const result of results) {
+            const { userId, reminder } = result; // looping through schema for specified data
+
+            const user = await Evie.getChatMember(chatId, userId); // fetch user by id
+            if (!user) return; // return if user id does not exist
+
+            Evie.sendMessage(chatId, `📌 Reminder: "${reminder}"`); // sending reminder to user
+        }
+        await remindSchema.deleteMany(data); // delete reminder data after reminder has been sent
+        setTimeout(remindNotif, 1000 * 10);
+    }
+    remindNotif(); // execute function
 });
