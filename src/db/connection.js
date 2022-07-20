@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-mongoose.connect(process.env.DB);
+mongoose.connect(process.env.MONGOOSE);
 
 let db;
 db = mongoose.connection;
