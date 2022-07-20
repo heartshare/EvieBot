@@ -17,3 +17,12 @@ Evie.getMe().then((me) => {
 });
 
 Evie.on('polling_error', console.log); // logs syntax errors
+
+Evie.onText(/\/remind (.+)/, (msg, match) => {
+    const chatId = msg.chat.id;
+
+    let Reminder = match[1].split(',')[0]; // reminder message
+    let Timer = match[1].split(',')[1]; // reminder timer
+
+    Evie.sendMessage(chatId, `Reminder "${Reminder}" set. I will remind you in ${Timer}.`);
+});
