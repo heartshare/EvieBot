@@ -5,7 +5,7 @@ A Telegram reminder bot written with JavaScript, Node, and Mongoose that will he
 Demo             |  Demo
 :------------------------:|:-------------------------:
 ![](https://i.imgur.com/YiCqWIS.png)  |  ![](https://i.imgur.com/rng3rb4.png)
-> - `/remind [message] [time]` : Create a reminder
+> - `/remind [message],[time]` : Create a reminder
 > - `/list` : View reminders list
 > - `/clear` : Delete all reminders
 
