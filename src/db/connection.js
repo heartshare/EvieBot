@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-mongoose.connect('mongodb+srv://unit-a-db-andro:YYN4CPLibLgTdfI3@cluster0.qea5a.mongodb.net/data');
+mongoose.connect(process.env.DB);
 
 let db;
 db = mongoose.connection;
