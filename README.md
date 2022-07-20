@@ -26,3 +26,8 @@ TOKEN = BOT_TOKEN_HERE
 MONGO = MONGOOSE_URI
 ```
 > Retrieve bot token from [Bot Father](https://t.me/botfather)
+
+# ⭐️ To Do List
+- Delete reminder by id `/delremind [id]`
+- Edit reminder by id `/editremind [id]`
+- Chat bot feature
