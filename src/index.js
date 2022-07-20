@@ -80,3 +80,24 @@ Evie.onText(/\/clear/, (msg) => {
         Evie.sendMessage(chatId, `Cleared reminders.`);
     }).catch((e) => console.error(e));
 });
+
+Evie.onText(/\/list/, (msg) => {
+    const chatId = msg.chat.id;
+
+    const remindList = async () => {
+        const data = {
+            userId: msg.from.id, // searching for data by author id
+        };
+
+        let list = [];
+        let newList = [];
+
+        list.push(await remindSchema.find(data));
+        for(let i = 0; i < list[0].length; i++) {
+            newList.push(list[0][i].reminder); // adding data to a list
+        }
+
+        Evie.sendMessage(chatId, `Reminders 📝\n${newList.join('\n')}`); // list reminders and separate by new line
+    }
+    remindList(); // execute function
+});
